@@ -1,0 +1,30 @@
+# Project: Boneco de neve
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main_boneco_neve.o $(RES)
+LINKOBJ  = main_boneco_neve.o $(RES)
+LIBS =  -L"lib" -mwindows -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 
+INCS =  -I"include" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+BIN  = "Boneco de neve.exe"
+CXXFLAGS = $(CXXINCS)   -O0
+CFLAGS = $(INCS)   -O0
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before "Boneco de neve.exe" all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Boneco de neve.exe" $(LIBS)
+
+main_boneco_neve.o: main_boneco_neve.cpp
+	$(CPP) -c main_boneco_neve.cpp -o main_boneco_neve.o $(CXXFLAGS)
